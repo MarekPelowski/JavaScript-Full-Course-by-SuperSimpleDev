@@ -14,8 +14,8 @@ function showCalculation() {
 }
 
 function clearCalculation() {
-  calculation = ''
+  calculation = '';
 
   document.querySelector('.js-calculation')
-  .innerHTML = '0';
+  .innerHTML = calculation;
 }
