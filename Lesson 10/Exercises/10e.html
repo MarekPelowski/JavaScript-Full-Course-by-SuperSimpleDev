@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .toggle-button {
+        background-color: rgb(230, 230, 230);
+        border: none;
+        font-size: 20px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+
+      .is-toggled {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toggle-button js-button-gaming" onclick="
+      const buttonElement = document.querySelector('.js-button-gaming');
+
+      if (buttonElement.classList.contains('is-toggled')) {
+        buttonElement.classList.remove('is-toggled');
+      } else {
+        buttonElement.classList.add('is-toggled');
+      }
+    ">
+      Gaming
+    </button>
+
+    <button class="toggle-button js-button-music" onclick="
+      const buttonElement = document.querySelector('.js-button-music');
+
+      if (buttonElement.classList.contains('is-toggled')) {
+        buttonElement.classList.remove('is-toggled');
+      } else {
+        buttonElement.classList.add('is-toggled');
+      }
+    ">
+      Music
+    </button>
+
+    <button class="toggle-button js-button-tech" onclick="
+      const buttonElement = document.querySelector('.js-button-tech');
+
+      if (buttonElement.classList.contains('is-toggled')) {
+        buttonElement.classList.remove('is-toggled');
+      } else {
+        buttonElement.classList.add('is-toggled');
+      }
+    ">
+      Tech
+    </button>
+    
+    <script>
+
+    </script>
+  </body>
+</html>
