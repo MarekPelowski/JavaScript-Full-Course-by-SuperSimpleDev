@@ -35,7 +35,15 @@
       }
 
       .score {
-        margin-top: 50px;
+        margin-top: 60px;
+      }
+
+      .reset-score-button {
+        background-color: white;
+        border: none;
+        font-size: 15px;
+        padding: 8px 15px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -53,14 +61,9 @@
       playGame('scissors');
     " class="move-button"><img src="images/scissors-emoji.png" class="move-icon"></button>
 
-    <p class="js-result result">You win.</p>
+    <p class="js-result result"></p>
     <p class="js-moves">
-      You
-      <img src="images/rock-emoji.png" class="move-icon">
-      <img src="images/scissors-emoji.png" class="move-icon">
-      Computer
-    </p>
-    <p class="js-score" class="score"></p>
+    <p class="js-score score"></p>
 
     <button onclick="
       score.wins = 0;
@@ -68,7 +71,7 @@
       score.ties = 0;
       localStorage.removeItem('score');
       updateScoreElement();
-    ">Reset Score</button>
+    " class="reset-score-button">Reset Score</button>
 
     <script>
       let score = JSON.parse(localStorage.getItem('score')) || {
@@ -136,7 +139,10 @@
 
         document.querySelector('.js-result').innerHTML = result;
 
-        document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`
+        document.querySelector('.js-moves').innerHTML = `      You
+      <img src="images/${playerMove}-emoji.png" class="move-icon">
+      <img src="images/${computerMove}-emoji.png" class="move-icon">
+      Computer`;
       }
 
       function updateScoreElement() {
