@@ -5,6 +5,7 @@
   </head>
   <body>
     <script>
+      greeting();
       function greeting() {
         console.log('hello');
       }
@@ -18,6 +19,26 @@
       console.log(function1);
       console.log(typeof function1);
       function1();
+
+      const object1 = {
+        num: 2,
+        fun: function() {
+          console.log('hello3');
+        }
+      };
+      object1.fun();
+
+      function display(peram) {
+        console.log(peram);
+      }
+      display(2);
+
+      function run(peram) {
+        peram();
+      }
+      run(function() {
+        console.log('hello4');
+      });
     </script>
   </body>
 </html>
