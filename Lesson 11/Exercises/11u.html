@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      function removeEgg(foods) {
+        const eggRemoved = [];
+        let eggs = 0;
+        const foodsClone = foods.slice()
+        const foodsReversed = foodsClone.reverse()
+
+        for (let i = 0; i < foodsReversed.length; i++) {
+          if (foodsClone[i] === 'egg' && eggs < 2) {
+            eggs += 1;
+            continue;
+          }
+          eggRemoved.push(foodsClone[i]);
+        }
+        return eggRemoved.reverse();
+      }
+
+      const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+      console.log(removeEgg(foods));
+      console.log(foods);
+    </script>
+  </body>
+</html>
