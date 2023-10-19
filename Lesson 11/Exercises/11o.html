@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      let strings = ['hello', 'world', 'search', 'good']
+      let index = -1;
+
+      for (let i = 0; i < strings.length; i++) {
+        const word = strings[i];
+        if (word === "search") {
+          index = i;
+          break;
+        }
+      }
+
+      console.log(index)
+
+      strings = ['not', 'found']
+      index = -1;
+
+      for (let i = 0; i < strings.length; i++) {
+        const word = strings[i];
+        if (word === "search") {
+          index = i;
+          break;
+        }
+      }
+
+      console.log(index);
+    </script>
+  </body>
+</html>
