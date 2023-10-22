@@ -61,7 +61,7 @@
         'make dinner',
         'wash dishes',
         'watch youtube'
-      ].forEach(function(value, index) {
+      ].forEach((value, index) => {
         if (value === 'wash dishes') {
           return;
         }
@@ -70,16 +70,24 @@
         console.log(value);
       });
 
-      const regularFunction = function(peram, peram2) {
+      const regularFunction = function(param, param2) {
         console.log('hello');
         return 5;
       }
 
-      const arrowFunction = (peram, peram2) => {
+      const arrowFunction = (param, param2) => {
         console.log('hello');
         return 5;
       };
       arrowFunction();
+
+      const oneParam = param => {
+        console.log(param + 1);
+      };
+      oneParam(2);
+
+      const oneLine = () => 2 + 3; ;
+      console.log(oneLine());
     </script>
   </body>
 </html>
