@@ -11,7 +11,7 @@
 
       if (messages === 0) {
         messages += 1;
-        startTitleChange();
+        TitleChange();
       }
 
     ">Add</button>
@@ -22,7 +22,7 @@
       }
       
       if (messages === 0) {
-        stopTitleChange();
+        TitleChange();
       }
     ">Remove</button>
 
@@ -30,10 +30,9 @@
       let messages = 2;
       let intervalId;
       let isTitleChange = false;
+      TitleChange();
 
-      startTitleChange();
-
-      function startTitleChange() {
+      function TitleChange() {
         if (!isTitleChange) {
           intervalId = setInterval(function() {
             if (document.title === 'App') {
@@ -42,13 +41,12 @@
               document.title = 'App';
             }
           }, 1000);
+          isTitleChange = true;
+        } else {
+          clearInterval(intervalId);
+          document.title = 'App';
+          isTitleChange = false;
         }
-      }
-
-      function stopTitleChange() {
-        clearInterval(intervalId);
-        document.title = 'App';
-        isTitleChange = false;
       }
     </script>
   </body>
