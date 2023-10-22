@@ -4,7 +4,15 @@
     <title>Advanced Functions</title>  
   </head>
   <body>
+    <button onclick="" class="js-button">Click</button>
+
     <script>
+      const buttonElement = document.querySelector('.js-button');
+
+      buttonElement.addEventListener('click', () => {
+        console.log('click');
+      });
+
       /*
       greeting();
       function greeting() {
@@ -57,6 +65,7 @@
       console.log('next line 2');
       */
 
+      /*
       [
         'make dinner',
         'wash dishes',
@@ -88,6 +97,16 @@
 
       const oneLine = () => 2 + 3; ;
       console.log(oneLine());
+
+      const object2 = {
+        method: () => {
+
+        },
+        method() {
+
+        }
+      };
+      */
     </script>
   </body>
 </html>
