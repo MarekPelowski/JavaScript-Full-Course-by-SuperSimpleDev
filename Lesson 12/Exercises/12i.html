@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+  </head>
+  <body>
+    <button onclick="
+      if (messages > 0) {
+        messages += 1;
+      }
+
+      if (messages === 0) {
+        messages += 1;
+        startTitleChange();
+      }
+
+    ">Add</button>
+
+    <button onclick="
+      if (messages > 0) {
+        messages -= 1;
+      }
+      
+      if (messages === 0) {
+        stopTitleChange();
+      }
+    ">Remove</button>
+
+    <script>
+      let messages = 2;
+      let intervalId;
+      let isTitleChange = false;
+
+      startTitleChange();
+
+      function startTitleChange() {
+        if (!isTitleChange) {
+          intervalId = setInterval(function() {
+            if (document.title === 'App') {
+              document.title = `(${messages}) New messages`;
+            } else {
+              document.title = 'App';
+            }
+          }, 1000);
+        }
+      }
+
+      function stopTitleChange() {
+        clearInterval(intervalId);
+        document.title = 'App';
+        isTitleChange = false;
+      }
+    </script>
+  </body>
+</html>
