@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      createText();
+    ">Add to cart</button>
+    <p class="js-text"></p>
+
+    <script>   
+      function createText() {
+        const messageElement = document.querySelector('.js-text');
+        messageElement.innerHTML = 'Added';
+        setTimeout(function() {
+          messageElement.innerHTML = '';
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
