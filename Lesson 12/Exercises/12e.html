@@ -2,16 +2,19 @@
 <html>
   <head></head>
   <body>
-    <button onclick="
-      createText();
-    ">Add to cart</button>
+    <button class="js-button">Add to cart</button>
     <p class="js-text"></p>
 
-    <script>   
+    <script>
+      document.querySelector('.js-button')
+        .addEventListener('click', () => {
+          createText();
+        });
+    
       function createText() {
         const messageElement = document.querySelector('.js-text');
         messageElement.innerHTML = 'Added';
-        setTimeout(() => {
+        setTimeout(function() {
           messageElement.innerHTML = '';
         }, 2000);
       }

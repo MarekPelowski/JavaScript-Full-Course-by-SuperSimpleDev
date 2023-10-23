@@ -4,16 +4,22 @@
     <title>App</title>
   </head>
   <body>
-    <button onclick="
-      messages += 1;  
-    ">Add</button>
+    <button class="js-add-button">Add</button>
 
-    <button onclick="
-      messages -= 1;
-    ">Remove</button>
+    <button class="js-remove-button">Remove</button>
 
     <script>
       let messages = 2;
+
+      document.querySelector('.js-add-button')
+        .addEventListener('click', () => {
+          messages++;
+        });
+
+      document.querySelector('.js-remove-button')
+        .addEventListener('click', () => {
+          messages--;
+        });
 
       setInterval(() => {
         if (document.title === 'App') {

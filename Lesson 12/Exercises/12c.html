@@ -2,11 +2,16 @@
 <html>
   <head></head>
   <body>
-    <button class="js-start-button" onclick="
-      setTimeout(() => {
-        document.querySelector('.js-start-button')
-          .innerHTML = 'Finished';
-      }, 1000);
-    ">start</button>
+    <button class="js-start-button">start</button>
+
+    <script>
+      document.querySelector('.js-start-button')
+        .addEventListener('click', () => {
+          setTimeout(() => {
+            document.querySelector('.js-start-button')
+              .innerHTML = 'Finished';
+          }, 1000);
+        });
+    </script>
   </body>
 </html>
