@@ -34,7 +34,7 @@
 
       function TitleChange() {
         if (!isTitleChange) {
-          intervalId = setInterval(function() {
+          intervalId = setInterval(() => {
             if (document.title === 'App') {
               document.title = `(${messages}) New messages`;
             } else {
