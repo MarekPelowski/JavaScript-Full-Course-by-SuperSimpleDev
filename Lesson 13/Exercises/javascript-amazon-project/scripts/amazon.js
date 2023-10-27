@@ -56,6 +56,8 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+let timeoutId;
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
@@ -93,8 +95,10 @@ document.querySelectorAll('.js-add-to-cart')
       );
 
       addedButton.classList.add('added-to-cart-activate');
+      
+      clearTimeout(timeoutId);
 
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         addedButton.classList.remove('added-to-cart-activate');
       }, 2000)
     });
