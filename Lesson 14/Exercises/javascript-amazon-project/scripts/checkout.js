@@ -109,5 +109,19 @@ document.querySelectorAll('.js-delete-link')
         `.js-cart-item-container-${productId}`
       )
       container.remove();
+      updateCartQuantity();
     });
   });
+
+function updateCartQuantity() {
+  let cartQuantity = 0;
+  
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  
+  document.querySelector('.js-return-to-home-link')
+    .innerHTML = cartQuantity
+}
+
+updateCartQuantity();
