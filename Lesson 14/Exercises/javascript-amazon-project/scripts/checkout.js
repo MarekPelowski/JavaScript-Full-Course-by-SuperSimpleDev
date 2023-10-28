@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity, updateQuantity} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity, updateQuantity, saveToStorage} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
@@ -134,26 +134,40 @@ document.querySelectorAll('.js-update-link')
 document.querySelectorAll('.js-save-quantity-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
-      const productId = link.dataset.productId;
-      
-      const container = document.querySelector(`.js-cart-item-container-${productId}`)
+      saveQuantity(link);
+    })
 
-      container.classList.remove('is-editing-quantity');
-
-      const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
-
-      const newQuantity = Number(quantityInput.value);
-
-      updateQuantity(productId, newQuantity);
-
-      document.querySelector(`.js-quantity-label-${productId}`)
-        .innerHTML = newQuantity;
-
-      document.querySelector('.js-return-to-home-link')
-        .innerHTML = calculateCartQuantity();
-
+    document.body.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        saveQuantity(link);
+      }
     })
   });
+
+function saveQuantity(link) {
+  const productId = link.dataset.productId;
+      
+  const container = document.querySelector(`.js-cart-item-container-${productId}`)
+
+  container.classList.remove('is-editing-quantity');
+
+  const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+
+  const newQuantity = Number(quantityInput.value);
+
+  updateQuantity(productId, newQuantity);
+
+  const input = document.querySelector(`.js-quantity-label-${productId}`);
+
+  if (quantityInput.value > 0 && quantityInput.value < 1000) {
+    input.innerHTML = newQuantity;
+
+    document.querySelector('.js-return-to-home-link')
+    .innerHTML = calculateCartQuantity();
+
+    saveToStorage();
+  }
+}
 
 function updateCartQuantity() {
   calculateCartQuantity();
