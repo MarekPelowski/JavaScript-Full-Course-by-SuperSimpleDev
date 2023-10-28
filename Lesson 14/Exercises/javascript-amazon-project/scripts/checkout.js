@@ -140,7 +140,7 @@ document.querySelectorAll('.js-save-quantity-link')
     document.body.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         saveQuantity(link);
-      }
+      } 
     })
   });
 
