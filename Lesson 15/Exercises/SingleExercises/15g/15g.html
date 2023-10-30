@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script type="module">
+      import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+      import isSatSun from './15g.js';
+
+      let date = dayjs();
+      console.log(isSatSun(date));
+
+      date = dayjs().subtract(1, 'day');
+      console.log(isSatSun(date))
+
+      date = dayjs().add(4, 'day');
+      console.log(isSatSun(date))
+
+      date = dayjs().add(5, 'day');
+      console.log(isSatSun(date))
+    </script>
+  </body>
+</html>
