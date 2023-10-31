@@ -64,12 +64,27 @@ export function renderOrderSummary() {
     `;
   });
 
+  function isWeekend(date) {
+    const day = date.format('dddd');
+
+    if (day === 'Saturday' || day === 'Sunday') {
+      return true;
+    }
+    return false;
+  }
+
   function calculateDeliveryDate(deliveryOption) {
-    const today = dayjs();
-    const deliveryDate = today.add(
-      deliveryOption.deliveryDays,
-      'days'
-    );
+    let daysToAdd = deliveryOption.deliveryDays;
+    let deliveryDate = dayjs();
+
+    while (daysToAdd > 0) {
+      deliveryDate = deliveryDate.add(1, 'day');
+
+      if (!isWeekend(deliveryDate)) {
+        daysToAdd --;
+      }
+    }
+
     const dateString = deliveryDate.format(
       'dddd, MMMM D'
     );
