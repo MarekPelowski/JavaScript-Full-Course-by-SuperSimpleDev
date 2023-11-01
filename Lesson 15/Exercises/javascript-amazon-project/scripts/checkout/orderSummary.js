@@ -185,15 +185,15 @@ export function renderOrderSummary() {
           `.js-quantity-input-${productId}`
         );
 
+        const newQuantity = Number(quantityInput.value);
+
         if (quantityInput.value > 0 && quantityInput.value < 1000) {
-          const newQuantity = Number(quantityInput.value);
           updateQuantity(productId, newQuantity);
+
+          renderCheckoutHeader();
+          renderOrderSummary();
+          renderPaymentSummary();
         }
-
-
-        renderCheckoutHeader();
-        renderOrderSummary();
-        renderPaymentSummary();
       });
     });
 }
